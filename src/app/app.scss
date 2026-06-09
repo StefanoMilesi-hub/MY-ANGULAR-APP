@@ -1,0 +1,84 @@
+:host {
+  --primary-color: #3b82f6;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f3f4f6;
+  --border-color: #e5e7eb;
+
+  display: block;
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .navbar-brand {
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+
+    li {
+      a {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--primary-color);
+        }
+
+        &.active {
+          color: var(--primary-color);
+          border-bottom: 2px solid var(--primary-color);
+          padding-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  background-color: var(--bg-light);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    .navbar-brand h1 {
+      font-size: 1.25rem;
+    }
+
+    .navbar-menu {
+      gap: 1rem;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
