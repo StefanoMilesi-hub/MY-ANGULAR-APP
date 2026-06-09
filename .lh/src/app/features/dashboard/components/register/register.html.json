@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/register/register.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781013238803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781013238803,
+            "name": "Commit-0",
+            "content": "<form [formGroup]=\"form\" class=\"form-container\">\r\n\r\n  <h3>Registrazione</h3>\r\n\r\n  <input type=\"email\" placeholder=\"Email\" formControlName=\"email\" />\r\n  <input type=\"password\" placeholder=\"Password\" formControlName=\"password\" />\r\n\r\n  <button (click)=\"register()\">Registrati</button>\r\n\r\n  <p class=\"switch\">\r\n    Hai già un account?\r\n    <span (click)=\"switchToLogin.emit()\">Login</span>\r\n  </p>\r\n\r\n</form>"
+        }
+    ]
+}

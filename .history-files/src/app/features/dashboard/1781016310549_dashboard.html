@@ -78,7 +78,7 @@
     *ngFor="let stat of dashboardStats(); trackBy: trackById"
     [id]="stat.id!"
     [title]="stat.title"
-    [value]="stat.value"
+    [value]="stat.value | number"
     [change]="stat.change"
     [icon]="stat.icon"
     [color]="stat.color"

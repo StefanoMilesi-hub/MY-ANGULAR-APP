@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/item-list/item-list.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781013082468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781013082468,
+            "name": "Commit-0",
+            "content": "<div class=\"items-container\">\r\n\r\n  <div *ngFor=\"let item of items\" class=\"item-card\">\r\n\r\n    <div class=\"item-header\">\r\n      <h3>{{ item.name }}</h3>\r\n      <span class=\"status\">{{ item.status }}</span>\r\n    </div>\r\n\r\n    <div class=\"item-body\">\r\n      <p>📅 {{ item.date }}</p>\r\n      <p>💰 {{ item.value }}</p>\r\n    </div>\r\n\r\n    <button class=\"delete-btn\" (click)=\"deleteItem.emit(item.id)\">\r\n      🗑️\r\n    </button>\r\n\r\n  </div>\r\n\r\n</div>\r\n"
+        }
+    ]
+}

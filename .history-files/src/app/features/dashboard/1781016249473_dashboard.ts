@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DashboardItem, DashboardService, DashboardStats } from '../../services/dashboard.service';
 import { Firebase } from '../../services/firebase';
 import { StatCardComponent } from './components/stat-card/stat-card';
-import { ItemsListComponent } from './components/items-list/items-list';
+import { ItemsListComponent } from './components/item-list/item-list';
 import { SettingsComponent } from './components/settings/setting';
 import { NewProject } from './components/new-project/new-project';
 import { ExportReport } from './components/export-report/export-report';
@@ -34,7 +34,7 @@ import { ExportReport } from './components/export-report/export-report';
     MatDialogModule,
     StatCardComponent,
     ItemsListComponent,
-],
+  ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss']
 })
@@ -134,7 +134,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   const newStat: DashboardStats = {
     id: this.homeform.value.id,
     title: this.homeform.value.title,
-    value: this.homeform.value.number,
+    value: this.homeform.value.value,
     change: this.homeform.value.change,
     icon: this.homeform.value.icon,
     color: this.homeform.value.color,

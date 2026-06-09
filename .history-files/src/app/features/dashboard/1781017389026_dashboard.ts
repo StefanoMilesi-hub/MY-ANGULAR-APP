@@ -134,7 +134,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   const newStat: DashboardStats = {
     id: this.homeform.value.id,
     title: this.homeform.value.title,
-    value: this.homeform.value.number,
+    value: this.homeform.value.value,
     change: this.homeform.value.change,
     icon: this.homeform.value.icon,
     color: this.homeform.value.color,

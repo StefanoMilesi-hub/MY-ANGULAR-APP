@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/stat-card/stat-card.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781017619276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781017619276,
+            "name": "Commit-0",
+            "content": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-stat-card',\r\n  standalone: true,\r\n  templateUrl: './stat-card.html',\r\n  styleUrls: ['./stat-card.scss']\r\n})\r\nexport class StatCardComponent {\r\n\r\n  @Input() id!: string;\r\n  @Input() title!: string;\r\n  @Input() value!: string | number;\r\n  @Input() change!: number;\r\n  @Input() icon!: string;\r\n  @Input() color!: string;\r\n\r\n  @Output() deleteStat = new EventEmitter<string>();\r\n\r\n}\r\n"
+        }
+    ]
+}

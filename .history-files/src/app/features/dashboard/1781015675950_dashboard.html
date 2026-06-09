@@ -73,19 +73,18 @@
   </div>
 
   <!-- STATS -->
-<div class="stats-grid">
-  <app-stat-card
-    *ngFor="let stat of dashboardStats(); trackBy: trackById"
-    [id]="stat.id!"
-    [title]="stat.title"
-    [value]="stat.value"
-    [change]="stat.change"
-    [icon]="stat.icon"
-    [color]="stat.color"
-    (deleteStat)="onDeleteStat($event)"
-  ></app-stat-card>
-</div>
-
+  <div class="stats-grid">
+    <app-stat-card
+      *ngFor="let stat of dashboardStats(); trackBy: trackById"
+      [id]="stat.id!"
+      [title]="stat.title"
+      [value]="stat.value"
+      [change]="stat.change"
+      [icon]="stat.icon"
+      [color]="stat.color"
+      (deleteStat)="onDeleteStat($event)"
+    ></app-stat-card>
+  </div>
 
   <!-- CONTENT -->
   <div class="dashboard-content">

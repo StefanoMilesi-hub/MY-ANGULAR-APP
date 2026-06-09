@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/login/login.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781012492049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781012492049,
+            "name": "Commit-0",
+            "content": "import { Component, EventEmitter, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  standalone: true,\r\n  template: `\r\n    <input [(ngModel)]=\"email\" placeholder=\"Email\" />\r\n    <button (click)=\"login()\">Login</button>\r\n    <p (click)=\"switchToRegister.emit()\">Registrati</p>\r\n  `\r\n})\r\nexport class LoginComponent {\r\n\r\n  @Output() loginSuccess = new EventEmitter<string>();\r\n  @Output() switchToRegister = new EventEmitter<void>();\r\n\r\n  email = '';\r\n\r\n  login() {\r\n    this.loginSuccess.emit(this.email);\r\n  }\r\n}"
+        }
+    ]
+}

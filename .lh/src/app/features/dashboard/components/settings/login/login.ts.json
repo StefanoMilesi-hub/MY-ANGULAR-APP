@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/settings/login/login.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1781018225914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1781018282384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n @Component({\r\n   selector: 'app-login',\r\n   standalone: true,\r\n+  imports: [FormsModule],\r\n   templateUrl: './login.html',\r\n   styleUrls: ['./login.scss'] \r\n })\r\n export class LoginComponent {\r\n"
+                },
+                {
+                    "date": 1781018290826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Component, EventEmitter, Output } from '@angular/core';\r\n+import { FormsModule } from '@angular/forms';\r\n \r\n @Component({\r\n   selector: 'app-login',\r\n   standalone: true,\r\n"
+                }
+            ],
+            "date": 1781018225914,
+            "name": "Commit-0",
+            "content": "import { Component, EventEmitter, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  standalone: true,\r\n  templateUrl: './login.html',\r\n  styleUrls: ['./login.scss'] \r\n})\r\nexport class LoginComponent {\r\n\r\n  @Output() loginSuccess = new EventEmitter<string>();\r\n  @Output() switchToRegister = new EventEmitter<void>();\r\n\r\n  email = '';\r\n\r\n  login() {\r\n    this.loginSuccess.emit(this.email);\r\n  }\r\n}"
+        }
+    ]
+}

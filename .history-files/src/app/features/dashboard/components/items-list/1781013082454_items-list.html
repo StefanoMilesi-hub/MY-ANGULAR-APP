@@ -1,0 +1,21 @@
+<div class="items-container">
+
+  <div *ngFor="let item of items" class="item-card">
+
+    <div class="item-header">
+      <h3>{{ item.name }}</h3>
+      <span class="status">{{ item.status }}</span>
+    </div>
+
+    <div class="item-body">
+      <p>📅 {{ item.date }}</p>
+      <p>💰 {{ item.value }}</p>
+    </div>
+
+    <button class="delete-btn" (click)="deleteItem.emit(item.id)">
+      🗑️
+    </button>
+
+  </div>
+
+</div>

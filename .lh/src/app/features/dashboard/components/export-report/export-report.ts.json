@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/export-report/export-report.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781015050675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781015050675,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule, MatDialogRef } from '@angular/material/dialog';\r\nimport { MatTableModule } from '@angular/material/table';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\nimport { Firebase } from '../../../../services/firebase';\r\n\r\nexport interface DashboardItem {\r\n  id: string;\r\n  name: string;\r\n  status: string;\r\n  date: string;\r\n  value: number;\r\n  deleted?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-export-report',\r\n  standalone: true,\r\n  imports: [\r\n    CommonModule,\r\n    MatDialogModule,\r\n    MatTableModule,\r\n    MatButtonModule\r\n  ],\r\n  templateUrl: './export-report.html',\r\n  styleUrls: ['./export-report.scss']\r\n})\r\nexport class ExportReport implements OnInit {\r\n\r\n  displayedColumns: string[] = [\r\n    'id', 'name', 'status', 'date', 'value', 'deleted'\r\n  ];\r\n\r\n  dataSource: DashboardItem[] = [];\r\n\r\n  constructor(\r\n    private firebase: Firebase,\r\n    public dialogRef: MatDialogRef<ExportReport>\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.loadItems();\r\n  }\r\n\r\n  loadItems() {\r\n    this.firebase\r\n      .getItems(this.firebase.urlDatabaseItems + '.json')\r\n      .subscribe((data: Record<string, DashboardItem> | null) => {\r\n\r\n        this.dataSource = Object.keys(data || {}).map(key => ({\r\n          ...data![key],\r\n          id: key\r\n        }));\r\n\r\n        console.log('📊 Items caricati:', this.dataSource);\r\n      });\r\n  }\r\n\r\n  // ✅ EXPORT CSV\r\n  exportCSV() {\r\n\r\n    if (!this.dataSource.length) return;\r\n\r\n    const headers = ['id', 'name', 'status', 'date', 'value', 'deleted'];\r\n\r\n    const rows = this.dataSource.map(item => [\r\n      item.id,\r\n      item.name,\r\n      item.status,\r\n      item.date,\r\n      item.value,\r\n      item.deleted ? 'true' : 'false'\r\n    ]);\r\n\r\n    const csv =\r\n      [headers, ...rows]\r\n        .map(r => r.map(v => `\"${v}\"`).join(','))\r\n        .join('\\n');\r\n\r\n    const blob = new Blob([csv], { type: 'text/csv' });\r\n    const url = URL.createObjectURL(blob);\r\n\r\n    const a = document.createElement('a');\r\n    a.href = url;\r\n    a.download = 'items_report.csv';\r\n    a.click();\r\n\r\n    URL.revokeObjectURL(url);\r\n\r\n    console.log('✅ CSV esportato');\r\n  }\r\n\r\n  close() {\r\n    this.dialogRef.close();\r\n  }\r\n}"
+        }
+    ]
+}

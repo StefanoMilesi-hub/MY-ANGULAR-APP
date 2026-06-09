@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/settings/register/register.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1781016858466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1781016912249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,5 @@\n \r\n     console.log('✅ Registrazione:', email);\r\n     this.registerSuccess.emit(email);\r\n   }\r\n-}\r\n-``\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1781017076954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Component, Output, EventEmitter } from '@angular/core';\r\n-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';\r\n+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\r\n import { CommonModule } from '@angular/common';\r\n \r\n @Component({\r\n   selector: 'app-register',\r\n@@ -13,14 +13,16 @@\n \r\n   @Output() registerSuccess = new EventEmitter<string>();\r\n   @Output() switchToLogin = new EventEmitter<void>();\r\n \r\n-  constructor(private fb: FormBuilder) {}\r\n+  form!: FormGroup;\r\n \r\n-  form = this.fb.group({\r\n-    email: [''],\r\n-    password: ['']\r\n-  });\r\n+  constructor(private fb: FormBuilder) {\r\n+    this.form = this.fb.group({\r\n+      email: [''],\r\n+      password: ['']\r\n+    });\r\n+  }\r\n \r\n   register() {\r\n     const { email } = this.form.value;\r\n \r\n"
+                }
+            ],
+            "date": 1781016858466,
+            "name": "Commit-0",
+            "content": "import { Component, Output, EventEmitter } from '@angular/core';\r\nimport { FormBuilder, ReactiveFormsModule } from '@angular/forms';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  standalone: true,\r\n  imports: [ReactiveFormsModule, CommonModule],\r\n  templateUrl: './register.html',\r\n  styleUrls: ['./register.scss']\r\n})\r\nexport class RegisterComponent {\r\n\r\n  @Output() registerSuccess = new EventEmitter<string>();\r\n  @Output() switchToLogin = new EventEmitter<void>();\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  form = this.fb.group({\r\n    email: [''],\r\n    password: ['']\r\n  });\r\n\r\n  register() {\r\n    const { email } = this.form.value;\r\n\r\n    if (!email) return;\r\n\r\n    console.log('✅ Registrazione:', email);\r\n    this.registerSuccess.emit(email);\r\n  }\r\n}\r\n``"
+        }
+    ]
+}

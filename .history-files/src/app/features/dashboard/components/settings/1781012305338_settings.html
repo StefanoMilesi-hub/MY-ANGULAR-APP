@@ -1,0 +1,17 @@
+<app-login
+  *ngIf="mode === 'login'"
+  (loginSuccess)="onLogin($event)"
+  (switchToRegister)="mode = 'register'">
+</app-login>
+
+<app-register
+  *ngIf="mode === 'register'"
+  (registerSuccess)="onRegister($event)"
+  (switchToLogin)="mode = 'login'">
+</app-register>
+
+<app-user
+  *ngIf="mode === 'logged'"
+  [email]="userEmail"
+  (logout)="onLogout()">
+</app-user>

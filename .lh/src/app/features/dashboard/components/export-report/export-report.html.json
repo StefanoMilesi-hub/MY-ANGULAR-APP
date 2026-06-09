@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/features/dashboard/components/export-report/export-report.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1781015078237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1781015078237,
+            "name": "Commit-0",
+            "content": "<div class=\"dialog-container\">\r\n\r\n  <!-- HEADER -->\r\n  <div class=\"header\">\r\n    📊 Export Report\r\n  </div>\r\n\r\n  <!-- TABLE -->\r\n  <div class=\"body\">\r\n\r\n    <table mat-table [dataSource]=\"dataSource\">\r\n\r\n      <ng-container matColumnDef=\"id\">\r\n        <th mat-header-cell *matHeaderCellDef> ID </th>\r\n        <td mat-cell *matCellDef=\"let e\"> {{ e.id }} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"name\">\r\n        <th mat-header-cell *matHeaderCellDef> Nome </th>\r\n        <td mat-cell *matCellDef=\"let e\"> {{ e.name }} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"status\">\r\n        <th mat-header-cell *matHeaderCellDef> Stato </th>\r\n        <td mat-cell *matCellDef=\"let e\"> {{ e.status }} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"date\">\r\n        <th mat-header-cell *matHeaderCellDef> Data </th>\r\n        <td mat-cell *matCellDef=\"let e\"> {{ e.date }} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"value\">\r\n        <th mat-header-cell *matHeaderCellDef> Valore </th>\r\n        <td mat-cell *matCellDef=\"let e\"> {{ e.value }} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"deleted\">\r\n        <th mat-header-cell *matHeaderCellDef> Deleted </th>\r\n        <td mat-cell *matCellDef=\"let e\">\r\n          {{ e.deleted ? '✅' : '❌' }}\r\n        </td>\r\n      </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n    </table>\r\n\r\n  </div>\r\n\r\n  <!-- FOOTER -->\r\n  <div class=\"footer\">\r\n    <button mat-button (click)=\"close()\">Chiudi</button>\r\n    <button mat-raised-button color=\"primary\" (click)=\"exportCSV()\">\r\n      📥 CSV\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+        }
+    ]
+}
