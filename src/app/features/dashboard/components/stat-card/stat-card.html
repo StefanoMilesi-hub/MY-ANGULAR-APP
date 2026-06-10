@@ -1,0 +1,12 @@
+<div class="stat-card" [class]="color">
+
+  <span class="icon">{{ icon }}</span>
+
+  <h3>{{ title }}</h3>
+  <p>{{ value }}</p>
+
+  <button class="delete-btn" (click)="deleteStat.emit(id)">
+    🗑️
+  </button>
+
+</div>

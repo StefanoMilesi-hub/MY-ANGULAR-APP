@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.switch span {
+  color: #6366f1;
+  cursor: pointer;
+}
