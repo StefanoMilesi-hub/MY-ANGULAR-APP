@@ -18,11 +18,11 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { DashboardItem, DashboardService, DashboardStats } from '../../services/dashboard.service';
 import { Firebase } from '../../services/firebase';
+import { ExportReport } from './components/export-report/export-report';
+import { NewProject } from './components/new-project/new-project';
+import { SettingsComponent } from './components/settings/setting';
 import { StatCardComponent } from './components/stat-card/stat-card';
 import { ItemsListComponent } from './components/items-list/items-list';
-import { SettingsComponent } from './components/settings/setting';
-import { NewProject } from './components/new-project/new-project';
-import { ExportReport } from './components/export-report/export-report';
 
 @Component({
   standalone: true,
@@ -33,7 +33,7 @@ import { ExportReport } from './components/export-report/export-report';
     MatButtonModule,
     MatDialogModule,
     StatCardComponent,
-    ItemsListComponent,
+    ItemsListComponent
 ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss']
