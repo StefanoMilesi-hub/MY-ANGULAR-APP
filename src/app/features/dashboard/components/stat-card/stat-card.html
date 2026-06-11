@@ -1,10 +1,21 @@
-<div class="stat-card" [class]="color">
+<div class="stat-card" [ngClass]="['stat-card', color]" (click)="logColor()">
 
-  <span class="icon">{{ icon }}</span>
+  <!-- ✅ header -->
+  <div class="header">
+    <span class="icon">{{ icon }}</span>
 
-  <h3>{{ title }}</h3>
-  <p>{{ value }}</p>
+    <span class="change" [class]="change > 0 ? 'positive' : 'negative'">
+      {{ change > 0 ? '📈' : '📉' }} {{ change }}%
+    </span>
+  </div>
 
+  <!-- ✅ body -->
+  <div class="body">
+    <p class="title">{{ title }}</p>
+    <p class="value">{{ value }}</p>
+  </div>
+
+  <!-- ✅ delete SEMPRE visibile -->
   <button class="delete-btn" (click)="deleteStat.emit(id)">
     🗑️
   </button>

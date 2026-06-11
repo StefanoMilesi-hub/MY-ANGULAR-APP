@@ -36,7 +36,7 @@ export class DashboardService {
       value: 1250,
       change: 12.5,
       icon: '👥',
-      color: 'bg-blue',
+      color: 'blue',
       deleted: false
     },
     {
@@ -45,7 +45,7 @@ export class DashboardService {
       value: '€45,000',
       change: 8.2,
       icon: '💰',
-      color: 'bg-green',
+      color: 'green',
       deleted: false
     },
     {
@@ -54,7 +54,7 @@ export class DashboardService {
       value: 342,
       change: -2.4,
       icon: '📦',
-      color: 'bg-orange',
+      color: 'orange',
       deleted: false
     },
     {
@@ -63,7 +63,7 @@ export class DashboardService {
       value: '3.24%',
       change: 5.1,
       icon: '📈',
-      color: 'bg-purple',
+      color: 'purple',
       deleted: false
     },
   ]);

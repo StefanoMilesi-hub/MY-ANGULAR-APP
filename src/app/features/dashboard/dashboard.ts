@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       value: [null, Validators.required],
       change: [0, Validators.required],
       icon: ['', Validators.required],
-      color: ['bg-blue', Validators.required],
+      color: ['blue', Validators.required],
       deleted: [false]
     });
 
@@ -134,10 +134,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   const newStat: DashboardStats = {
     id: this.homeform.value.id,
     title: this.homeform.value.title,
-    value: this.homeform.value.number,
+    value: this.homeform.value.value,
     change: this.homeform.value.change,
     icon: this.homeform.value.icon,
-    color: this.homeform.value.color,
+    color: this.getColorFromChange(this.homeform.value.change),
     deleted: this.homeform.value.deleted
   };
 
@@ -153,7 +153,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       // ✅ aggiorna UI
       this.statsDatabase.update(stats => [...stats, statWithId]);
-      this.homeform.reset({ change: 0, value: null, color: 'bg-blue', icon: '', title: '', deleted: false });
+      this.homeform.reset({ 
+        change: 0, 
+        value: null, 
+        color: this.getColorFromChange(0),
+        icon: '',
+        title: '',
+        deleted: false });
 
       console.log('✅ Nuova stat aggiunta:', statWithId);
       console.log('📊 Lista aggiornata stats:', this.dashboardStats());
@@ -347,6 +353,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   trackById(index: number, item: any) {
    return item.id;
+  }
+
+  getColorFromChange(change: number): string {
+    if (change > 5) return 'green';
+    if (change > 0) return 'blue';
+    if (change === 0) return 'orange';
+    return 'red';
   }
 
 }

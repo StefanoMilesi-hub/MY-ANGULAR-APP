@@ -1,0 +1,113 @@
+.stat-card {
+  position: relative;
+  padding: 10px 10px 20px 14px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  min-height: 80px;
+}
+
+/* ✅ colori gestiti dal TS tramite [ngClass]="color" */
+.stat-card.blue {
+  border-left: 8px solid #3b82f6;
+  box-shadow: 0 4px 10px rgba(59,130,246,0.2);
+}
+
+.stat-card.green {
+  border-left: 8px solid #22c55e;
+  box-shadow: 0 4px 10px rgba(34,197,94,0.2);
+}
+
+.stat-card.orange {
+  border-left: 8px solid #f59e0b;
+  box-shadow: 0 4px 10px rgba(245,158,11,0.2);
+}
+
+.stat-card.red {
+  border-left: 8px solid #ef4444;
+  box-shadow: 0 4px 10px rgba(239,68,68,0.2);
+}
+
+.stat-card.purple {
+  border-left: 8px solid #8b5cf6;
+  box-shadow: 0 4px 10px rgba(139,92,246,0.2);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.stat-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.stat-card.selected {
+  transform: translateY(-3px);
+  border-left-width: 10px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ✅ header compatto */
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+/* ✅ change */
+.change {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.change.positive {
+  color: #16a34a;
+}
+
+.change.negative {
+  color: #dc2626;
+}
+
+/* ✅ body compatto */
+.body {
+  margin-top: 6px;
+}
+
+.title {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+.value {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ✅ DELETE SEMPRE visibile */
+.delete-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;   // ✅ basso a destra
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.6;   // sempre visibile
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}

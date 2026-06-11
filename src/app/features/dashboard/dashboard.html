@@ -8,69 +8,58 @@
 
   <!-- FORM -->
   <div class="form-card">
-    <form [formGroup]="homeform" (ngSubmit)="onSubmit()">
+  <form [formGroup]="homeform" (ngSubmit)="onSubmit()">
 
-      <!-- ICON -->
-      <div class="form-field">
-        <label>Icona</label>
+    <!-- TOP BAR -->
+    <div class="top-row">
 
-        <div class="icon-input">
-          <span
-            *ngFor="let ic of icons"
-            class="icon-item"
-            [class.selected]="homeform.get('icon')?.value === ic"
-            (click)="selectIcon(ic)"
-          >
-            {{ ic }}
-          </span>
+      <!-- VARIAZIONE -->
+      <div class="change-box" [class]="changeClass">
+        <span>{{ changeIcon }}</span>
 
-          <input formControlName="icon" placeholder="Icona"/>
-        </div>
-      </div>
-
-      <!-- CHANGE -->
-      <div class="form-field">
-        <label>Variazione %</label>
-
-        <div class="change-box" [class]="changeClass">
-          <span>{{ changeIcon }}</span>
-
-          <input
-            formControlName="change"
-            type="number"
-            min="-100"
-            max="100"
-            step="0.1"
-          />
-
-          %
-        </div>
-      </div>
-
-      <!-- TITLE -->
-      <div class="form-field">
-        <input formControlName="title" placeholder="Titolo card"/>
-      </div>
-
-      <!-- VALUE -->
-      <div class="form-field">
         <input
-          formControlName="value"
           type="number"
-          min="0"
-          placeholder="Valore"
+          formControlName="change"
+          placeholder="0"
         />
+
+        %
       </div>
 
-      <!-- SUBMIT -->
-      <div class="form-actions">
-        <button type="submit" class="btn-primary" [disabled]="homeform.invalid">
-          Invia
-        </button>
+    </div>
+
+    <!-- ICON + INPUT -->
+    <div class="icon-row">
+
+      <div class="icon-picker">
+        <span
+          *ngFor="let ic of icons"
+          class="icon-item"
+          [class.selected]="homeform.get('icon')?.value === ic"
+          (click)="selectIcon(ic)"
+        >
+          {{ ic }}
+        </span>
       </div>
 
-    </form>
-  </div>
+      <!-- INPUT ICONA -->
+      <input class="icon-input" formControlName="icon" placeholder="Icona" />
+
+    </div>
+
+    <!-- TITLE -->
+    <input formControlName="title" placeholder="Titolo card" />
+
+    <!-- VALUE -->
+    <input type="number" formControlName="value" placeholder="Valore" />
+
+    <!-- SUBMIT -->
+    <button class="submit-btn" [disabled]="homeform.invalid">
+      ➕ Aggiungi
+    </button>
+
+  </form>
+</div>
 
   <!-- STATS -->
 <div class="stats-grid">
