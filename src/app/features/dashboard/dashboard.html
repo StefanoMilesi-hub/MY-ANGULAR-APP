@@ -1,62 +1,72 @@
 <div class="dashboard-container">
 
-  <!-- HEADER -->
-  <div class="dashboard-header">
-    <h1>Dashboard</h1>
-    <p>Benvenuto nel tuo cruscotto di amministrazione</p>
-  </div>
+    <!-- HEADER -->
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <p>Benvenuto nel tuo cruscotto di amministrazione</p>
+    </div>
 
-  <!-- FORM -->
-  <div class="form-card">
-  <form [formGroup]="homeform" (ngSubmit)="onSubmit()">
+    <!-- FORM -->
+    <div class="form-card">
+    <form [formGroup]="homeform" (ngSubmit)="onSubmit()">
 
-    <!-- TOP BAR -->
     <div class="top-row">
 
-      <!-- VARIAZIONE -->
-      <div class="change-box" [class]="changeClass">
-        <span>{{ changeIcon }}</span>
+      <!-- ✅ BLOCCO SINISTRO -->
+      <div class="left-block">
 
+        <!-- ICON + INPUT -->
+        <div class="icon-row">
+          <div class="icon-picker">
+            <span
+              *ngFor="let ic of icons"
+              class="icon-item"
+              [class.selected]="homeform.get('icon')?.value === ic"
+              (click)="selectIcon(ic)"
+            >
+              {{ ic }}
+            </span>
+          </div>
+
+          <input
+            class="icon-input"
+            formControlName="icon"
+            placeholder="Icona"
+          />
+        </div>
+
+        <!-- ✅ TITOLO SUBITO SOTTO -->
         <input
-          type="number"
-          formControlName="change"
-          placeholder="0"
+          class="title-input"
+          formControlName="title"
+          placeholder="Titolo card"
         />
 
+      </div>
+
+      <!-- ✅ CHANGE A DESTRA -->
+      <div class="change-box" [class]="changeClass">
+        <span>{{ changeIcon }}</span>
+        <input type="number" formControlName="change" />
         %
-      </div>
+    </div>
+  </div>
 
+    <!-- ✅ VALORE (sinistra) -->
+    <div class="value-row">
+      <input
+        type="number"
+        formControlName="value"
+        placeholder="Valore"
+      />
     </div>
 
-    <!-- ICON + INPUT -->
-    <div class="icon-row">
-
-      <div class="icon-picker">
-        <span
-          *ngFor="let ic of icons"
-          class="icon-item"
-          [class.selected]="homeform.get('icon')?.value === ic"
-          (click)="selectIcon(ic)"
-        >
-          {{ ic }}
-        </span>
-      </div>
-
-      <!-- INPUT ICONA -->
-      <input class="icon-input" formControlName="icon" placeholder="Icona" />
-
+    <!-- ✅ BUTTON (basso destra) -->
+    <div class="actions">
+      <button class="submit-btn" [disabled]="homeform.invalid">
+        ➕ Aggiungi
+      </button>
     </div>
-
-    <!-- TITLE -->
-    <input formControlName="title" placeholder="Titolo card" />
-
-    <!-- VALUE -->
-    <input type="number" formControlName="value" placeholder="Valore" />
-
-    <!-- SUBMIT -->
-    <button class="submit-btn" [disabled]="homeform.invalid">
-      ➕ Aggiungi
-    </button>
 
   </form>
 </div>

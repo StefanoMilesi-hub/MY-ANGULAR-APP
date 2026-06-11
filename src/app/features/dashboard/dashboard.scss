@@ -1,17 +1,88 @@
+/* ===== FORM ===== */
+
 .form-card {
-  background: white;
-  padding: 18px;
+  position: relative;
+  padding: 10px;
+  padding-bottom: 40px; // spazio bottone
   border-radius: 14px;
+  background: white;
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin-bottom: 10px;
 }
 
-.form-group {
-  margin-bottom: 16px;
+.form-card input {
+  height: 28px;           // ✅ altezza compatta
+  padding: 4px 8px;       // ✅ meno spazio interno
+  font-size: 13px;        // ✅ più piccolo
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* top layout */
+.top-row {
+  display: flex;
+  align-items: flex-start;   // ✅ attacca tutto in alto
+  margin-top: 0;             // ✅ elimina spazio sopra
+}
+
+
+.left-block {
   display: flex;
   flex-direction: column;
+  gap: 4px;   // ✅ meno spazio tra icone e titolo
+
+  margin-top: 0;
+}
+
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 0;   // ✅ elimina offset
+}
+
+.icon-input {
+  width: 30px;            // ✅ stretto
+  height: 26px;
+  padding: 3px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.icon-input input {
+  width: 30px;
+}
+
+.title-input {
+  height: 28px;
+  font-size: 13px;
+  width: 150px;       
+}
+
+.value-row input {
+  width: 100px;     
+  height: 28px;
+  font-size: 13px;
+}
+
+/* ✅ percentuale */
+.change-box {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}
+
+/* ✅ valore */
+.value-row {
+  margin-top: 20px;
+}
+
+/* ✅ bottone */
+.actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
 }
 
 .stat-change {
@@ -159,6 +230,90 @@
   }
 }
 
+ label {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+input:focus {
+    border-color: #6366f1;
+    outline: none;
+ }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .icon-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .icon-item {
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .icon-item.selected {
+    background: #6366f1;
+    color: white;
+  }
+
+  .change-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+.change-box input {
+  width: 50px;
+  height: 26px;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.icon-picker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* icone */
+.icon-item {
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.icon-item:hover {
+  background: #f3f4f6;
+}
+
+.icon-item.selected {
+  background: #6366f1;
+  color: white;
+}
+
+/* button */
+.submit-btn {
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 // Responsive design
 @media (max-width: 1024px) {
   .dashboard-content {
@@ -223,136 +378,4 @@
       box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     }
   }
-
-  .icon-input {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .icon-input input {
-    width: 50px;
-  }
-
-  label {
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-
-  input {
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    transition: 0.2s;
-  }
-
-  input:focus {
-    border-color: #6366f1;
-    outline: none;
- }
-
-  .submit-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    background: #6366f1;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  .icon-picker {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .icon-item {
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  .icon-item.selected {
-    background: #6366f1;
-    color: white;
-  }
-
-  .change-input {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .change-box {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    background: #f3f4f6;
-    font-size: 14px;
-}
-
-.change-box input {
-  width: 60px;
-  border: none;
-  background: transparent;
-  outline: none;
-  text-align: center;
-}
-
-/* ✅ ICON ROW */
-.icon-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon-picker {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-/* icone */
-.icon-item {
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: 0.2s;
-}
-
-.icon-item:hover {
-  background: #f3f4f6;
-}
-
-.icon-item.selected {
-  background: #6366f1;
-  color: white;
-}
-
-/* input icona */
-.icon-input {
-  width: 90px;
-}
-
-/* inputs */
-input {
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-/* button */
-.submit-btn {
-  margin-top: 6px;
-  padding: 10px;
-  border-radius: 10px;
-  background: #6366f1;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-}
+}  
