@@ -5,12 +5,13 @@
   background: white;
   border: 1px solid #eee;
 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
   display: flex;
   flex-direction: column;
 }
 
 .status {
-  position: absolute;
   top: 8px;
   left: 10px;
 
@@ -34,6 +35,17 @@
 .item-content p {
   margin: 2px 0;
   font-size: 13px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;  // ✅ spinge stato a destra
+  align-items: center;
+}
+
+.item-header h3 {
+  margin: 0;
+  font-size: 14px;
 }
 
 .date {

@@ -85,50 +85,56 @@
     ></app-stat-card>
   </div>
 
-  <!-- ✅ FORM ITEMS -->
-    <div class="items-form-card">
-    <form [formGroup]="itemForm" (ngSubmit)="onSubmitItem()">
-
-      <div class="item-form">
-
-        <div class="row-top">
-          <input formControlName="name" placeholder="Nome progetto" />
-          <select formControlName="status" class="status-select">
-            <option value="active">active</option>
-            <option value="inactive">inactive</option>
-            <option value="disabled">pending</option>
-          </select>
-        </div>
-
-        <div class="row-date">
-          <input type="date" formControlName="date" />
-        </div>
-
-        <div class="row">
-          <input type="number" formControlName="value" placeholder="Valore" />
-        </div>
-
-        <!-- ✅ BOTTONE IN UNA RIGA SUA -->
-        <div class="actions">
-          <button type="submit">
-            ➕ Aggiungi
-          </button>
-        </div>
-
-      </div>
-
-    </form>
-  </div>
-
   <!-- CONTENT -->
   <div class="dashboard-content">
 
+  <!-- ✅ COLONNA SINISTRA -->
     <div class="main-section">
-      <app-items-list
-        [items]="dashboardItems()"
-        (deleteItem)="onDeleteItem($event)">
-      </app-items-list>
+
+    <!-- ✅ FORM ALLINEATA ALLA LISTA -->
+    <div class="items-form-card">
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmitItem()">
+
+        <div class="item-form">
+
+          <div class="row">
+            <input formControlName="name" placeholder="Nome progetto" />
+          </div>
+
+          <div class="row">
+            <select formControlName="status" class="status-select">
+              <option value="active">Attivo</option>
+              <option value="inactive">Inattivo</option>
+              <option value="disabled">Disattivo</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <input type="date" formControlName="date" />
+          </div>
+
+          <div class="row">
+            <input type="number" formControlName="value" placeholder="Valore" />
+          </div>
+
+          <div class="actions">
+            <button type="submit">
+              ➕ Aggiungi
+            </button>
+          </div>
+
+        </div>
+
+      </form>
     </div>
+
+    <!-- ✅ LISTA ITEMS -->
+    <app-items-list
+      [items]="dashboardItems()"
+      (deleteItem)="onDeleteItem($event)">
+    </app-items-list>
+
+   </div>
 
     <div class="sidebar-section">
 
