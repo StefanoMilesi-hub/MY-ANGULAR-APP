@@ -1,4 +1,104 @@
 /* ===== FORM ===== */
+.items-form-card {
+  position: relative;
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 50px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.items-form-card input {
+  height: 28px;
+  padding: 4px 6px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.row-top {
+  display: flex;
+  gap: 8px;
+}
+
+.row input {
+  width: 150px;    // ✅ dimensione proporzionata
+}
+
+.row-date input{
+  width: 100px;
+}
+
+.row-top input {
+  width: 250px;   // ✅ nome più compatto
+}
+
+.row-top input:first-child {
+  width: 250px;
+}
+
+.row-top input:last-child {
+  width: 120px;
+}
+
+.status-select {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  height: 28px;
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.actions button {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 32px;
+}
+
+.item-form-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.item-form-row input {
+  height: 28px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.item-form-row button {
+  margin-left: auto; // ✅ a destra
+}
 
 .form-card {
   position: relative;
@@ -24,7 +124,6 @@
   align-items: flex-start;   // ✅ attacca tutto in alto
   margin-top: 0;             // ✅ elimina spazio sopra
 }
-
 
 .left-block {
   display: flex;
@@ -378,4 +477,4 @@ input:focus {
       box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     }
   }
-}  
+}

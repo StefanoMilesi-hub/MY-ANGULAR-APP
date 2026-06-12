@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   // ✅ FORM
   homeform: FormGroup;
+  itemForm: FormGroup;
 
   // ✅ STATE
   itemsDatabase = signal<DashboardItem[]>([]);
@@ -91,6 +92,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
       change: [0, Validators.required],
       icon: ['', Validators.required],
       color: ['blue', Validators.required],
+      deleted: [false]
+    });
+
+    this.itemForm = this.fb.group({
+      name: ['', { validators: [Validators.required] }],
+      status: ['', { validators: [Validators.required] }],
+      date: ['', { validators: [Validators.required] }],
+      value: [null, Validators.required],
       deleted: [false]
     });
 
@@ -166,6 +175,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     },
     error: (err) => console.error('❌ Errore:', err)
+  });
+ }
+
+ onSubmitItem() {
+  if (this.itemForm.invalid) return;
+
+  const newItem: DashboardItem = {
+    id: Date.now().toString(),
+    ...this.itemForm.value
+  };
+
+  this.itemsDatabase.update(items => [...items, newItem]);
+
+  this.itemForm.reset({
+    name: '',
+    status: 'active',
+    date: '',
+    value: null,
+    deleted: false
   });
  }
 

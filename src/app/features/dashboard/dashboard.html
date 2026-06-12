@@ -72,19 +72,53 @@
 </div>
 
   <!-- STATS -->
-<div class="stats-grid">
-  <app-stat-card
-    *ngFor="let stat of dashboardStats(); trackBy: trackById"
-    [id]="stat.id!"
-    [title]="stat.title"
-    [value]="stat.value"
-    [change]="stat.change"
-    [icon]="stat.icon"
-    [color]="stat.color"
-    (deleteStat)="onDeleteStat($event)"
-  ></app-stat-card>
-</div>
+  <div class="stats-grid">
+    <app-stat-card
+      *ngFor="let stat of dashboardStats(); trackBy: trackById"
+      [id]="stat.id!"
+      [title]="stat.title"
+      [value]="stat.value"
+      [change]="stat.change"
+      [icon]="stat.icon"
+      [color]="stat.color"
+      (deleteStat)="onDeleteStat($event)"
+    ></app-stat-card>
+  </div>
 
+  <!-- ✅ FORM ITEMS -->
+    <div class="items-form-card">
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmitItem()">
+
+      <div class="item-form">
+
+        <div class="row-top">
+          <input formControlName="name" placeholder="Nome progetto" />
+          <select formControlName="status" class="status-select">
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+            <option value="disabled">pending</option>
+          </select>
+        </div>
+
+        <div class="row-date">
+          <input type="date" formControlName="date" />
+        </div>
+
+        <div class="row">
+          <input type="number" formControlName="value" placeholder="Valore" />
+        </div>
+
+        <!-- ✅ BOTTONE IN UNA RIGA SUA -->
+        <div class="actions">
+          <button type="submit">
+            ➕ Aggiungi
+          </button>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
 
   <!-- CONTENT -->
   <div class="dashboard-content">

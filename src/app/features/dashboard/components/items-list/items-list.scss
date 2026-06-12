@@ -1,38 +1,63 @@
-.items-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .item-card {
   position: relative;
-  padding: 12px;
-  border-radius: 10px;
-  background: #f9fafb;
+  padding: 14px 12px;
+  border-radius: 12px;
+  background: white;
   border: 1px solid #eee;
-}
 
-.item-header {
   display: flex;
-  justify-content: space-between;
-  font-weight: bold;
+  flex-direction: column;
 }
 
 .status {
-  font-size: 12px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+
+  background: #eef2ff;
   color: #6366f1;
+}
+
+.item-content {
+  margin-top: 12px;   // ✅ evita sovrapposizione con status
+}
+
+.item-content h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.item-content p {
+  margin: 2px 0;
+  font-size: 13px;
+}
+
+.date {
+  margin-top: 4px;
+}
+
+.value {
+  margin-top: 2px;
 }
 
 .delete-btn {
   position: absolute;
   bottom: 8px;
-  left: 8px;
-  background: transparent;
+  right: 10px;
+
   border: none;
+  background: transparent;
   cursor: pointer;
-  opacity: 0.6;
+
+  font-size: 14px;
+  opacity: 0.5;
 }
 
 .delete-btn:hover {
   opacity: 1;
+  transform: scale(1.1);
 }

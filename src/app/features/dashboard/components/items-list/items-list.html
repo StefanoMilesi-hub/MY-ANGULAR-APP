@@ -2,16 +2,18 @@
 
   <div *ngFor="let item of items" class="item-card">
 
-    <div class="item-header">
+    <!-- ✅ STATUS IN ALTO A SINISTRA -->
+    <span class="status">{{ item.status }}</span>
+
+    <!-- ✅ CONTENUTO -->
+    <div class="item-content">
       <h3>{{ item.name }}</h3>
-      <span class="status">{{ item.status }}</span>
+
+      <p class="date">📅 {{ item.date }}</p>
+      <p class="value">💰 {{ item.value }}</p>
     </div>
 
-    <div class="item-body">
-      <p>📅 {{ item.date }}</p>
-      <p>💰 {{ item.value }}</p>
-    </div>
-
+    <!-- ✅ DELETE -->
     <button class="delete-btn" (click)="deleteItem.emit(item.id)">
       🗑️
     </button>
