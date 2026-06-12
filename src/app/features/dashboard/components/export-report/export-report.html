@@ -1,12 +1,12 @@
 <div class="dialog-container">
 
   <!-- HEADER -->
-  <div class="header">
+  <div class="title">
     📊 Export Report
   </div>
 
   <!-- TABLE -->
-  <div class="body">
+  <div class="content">
 
     <table mat-table [dataSource]="dataSource">
 
@@ -50,10 +50,12 @@
   </div>
 
   <!-- FOOTER -->
-  <div class="footer">
-    <button mat-button (click)="close()">Chiudi</button>
-    <button mat-raised-button color="primary" (click)="exportCSV()">
+  <div class="dialog-actions">
+    <button mat-raised-button (click)="exportCSV()">
       📥 CSV
+    </button>
+    <button mat-button (click)="close()">
+      Chiudi
     </button>
   </div>
 
