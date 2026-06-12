@@ -1,0 +1,48 @@
+<div class="dialog-container">
+
+  <h2 class="title">Nuovo Progetto</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+    <!-- GRID -->
+    <div class="form-grid">
+
+      <div class="form-field full">
+        <label>Nome progetto</label>
+        <input type="text" formControlName="name" placeholder="Es. Website redesign" />
+      </div>
+
+      <div class="form-field">
+        <label>Stato</label>
+        <select formControlName="status">
+          <option value="active">Attivo</option>
+          <option value="pending">In sospeso</option>
+          <option value="inactive">Inattivo</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label>Data</label>
+        <input type="date" formControlName="date" />
+      </div>
+
+      <div class="form-field">
+        <label>Valore (%)</label>
+        <input type="number" formControlName="value" />
+      </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      
+    <button type="button" class="btn secondary" (click)="onCancel()">
+      Annulla
+    </button>
+
+    <button type="submit" class="btn primary" [disabled]="form.invalid">
+      Crea progetto
+    </button>
+  </div>
+ </form>
+</div>
