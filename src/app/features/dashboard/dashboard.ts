@@ -303,9 +303,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // ✅ OPEN DIALOG
   openDialogReport() {
     this.dialog.open(ExportReport, {
-      width: '730px',         // ✅ più largo
+      width: '920px',         // ✅ più largo
       maxWidth: '85vw',       // ✅ responsive
-      height: '85vh',         // ✅ più alto
+      height: '75vh',         // ✅ più alto
       panelClass: 'custom-dialog'  // ✅ per styling
     })
     .afterClosed()
